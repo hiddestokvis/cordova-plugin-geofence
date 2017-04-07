@@ -1291,8 +1291,8 @@ extension NSNumber {
     var isBool:Bool {
         get {
             let objCType = String.fromCString(self.objCType)
-            if (self.compare(trueNumber) == NSComparisonResult.OrderedSame && objCType == trueObjCType)
-                || (self.compare(falseNumber) == NSComparisonResult.OrderedSame && objCType == falseObjCType){
+            if (self.compare(trueNumber) == ComparisonResult.OrderedSame && objCType == trueObjCType)
+                || (self.compare(falseNumber) == ComparisonResult.OrderedSame && objCType == falseObjCType){
                     return true
             } else {
                 return false
@@ -1308,7 +1308,7 @@ public func ==(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) == NSComparisonResult.OrderedSame
+        return lhs.compare(rhs) == ComparisonResult.OrderedSame
     }
 }
 
@@ -1324,7 +1324,7 @@ public func <(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) == NSComparisonResult.OrderedAscending
+        return lhs.compare(rhs) == ComparisonResult.OrderedAscending
     }
 }
 
@@ -1336,7 +1336,7 @@ public func >(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) == NSComparisonResult.OrderedDescending
+        return lhs.compare(rhs) == ComparisonResult.OrderedDescending
     }
 }
 
@@ -1348,7 +1348,7 @@ public func <=(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) != NSComparisonResult.OrderedDescending
+        return lhs.compare(rhs) != ComparisonResult.OrderedDescending
     }
 }
 
@@ -1360,6 +1360,6 @@ public func >=(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) != NSComparisonResult.OrderedAscending
+        return lhs.compare(rhs) != ComparisonResult.OrderedAscending
     }
 }
